@@ -14,7 +14,7 @@ class UpdateUsersTable extends Migration
     public function up()
     {
         Schema::table("users", function (Blueprint $table){
-                $table->string("image_path", 255);
+                $table->string("image_path", 255)->nullable();
                 $table->enum("role", ["ADMIN","SUPER_ADMIN"])->default("ADMIN");
                 $table->boolean("status")->default(true);
         });
