@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ActivityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,15 @@ Route::group(['middleware' => ['auth']], function(){
         Route::get('/', [ProfileController::class, 'index'])->name('index');
         Route::put('/update', [ProfileController::class, 'update'])->name('update');
     });
+
+    # Activity
+    Route::group(['prefix' => 'activity', 'as' => 'activity.'], function(){
+        Route::get('/', [ActivityController::class, 'index'])->name('index');
+        Route::post('/', [ActivityController::class, 'store'])->name('store');
+        Route::delete('/{activity}', [ActivityController::class, 'destroy'])->name('destroy');
+        Route::get('{activity}/edit', [ActivityController::class, 'edit'])->name('edit');
+        Route::put('{activity}', [ActivityController::class, 'update'])->name('update');
+    });
+
 });
 
