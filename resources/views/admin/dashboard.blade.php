@@ -6,6 +6,7 @@
             <div class="card shadow h-100 py-2">
                 <div class="card-body">
                     <h1>DPM Website</h1>
+                    <p>It's Dashboard Page</p>
                 </div>
             </div>
         </div>

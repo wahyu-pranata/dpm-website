@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ActivityController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,13 @@ Route::group(['middleware' => ['auth']], function(){
         Route::delete('/{activity}', [ActivityController::class, 'destroy'])->name('destroy');
         Route::get('{activity}/edit', [ActivityController::class, 'edit'])->name('edit');
         Route::put('{activity}', [ActivityController::class, 'update'])->name('update');
+    });
+
+    Route::group(['middleware' => 'superadmin', 'prefix' => 'user', 'as' => 'user.'], function(){
+        Route::get('/', [UserController::class, 'index'])->name('index');
+        Route::post('/', [UserController::class, 'store'])->name('store');
+        Route::put('/{user}', [UserController::class, 'update'])->name('update');
+        Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
     });
 
 });

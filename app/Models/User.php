@@ -52,6 +52,11 @@ class User extends Authenticatable
         return Storage::url($this->image_path);
     }
 
+    public function getStatusAttribute($value)
+    {
+        return $value ? "Active" : "Not Active";   
+    }
+
     public function activities()
     {
         return $this->hasMany(UserActivity::class);
