@@ -45,11 +45,6 @@ class ActivityController extends Controller
         return response()->json(['message' => 'Activity has been deleted'], 200);
     }
 
-    public function edit(UserActivity $activity)
-    {
-        return view('admin.activity.index', ['userActivity' => $activity]);
-    }
-
     public function update(UpdateActivity $request, UserActivity $activity)
     {
         $activity->activity      = $request->activity;
@@ -58,6 +53,7 @@ class ActivityController extends Controller
         $activity->held_at       = $request->held_at;
 
         $activity->save();
-        return redirect(route('admin.activity.index'));
+        
+        return response()->json(['message' => 'Activity has been updated'], 200);
     }
 }

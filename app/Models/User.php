@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserActivity::class);
     }
+
+    public function isSuperAdmin()
+    {
+        return $this->role == 'SUPER_ADMIN';
+    }
 }
