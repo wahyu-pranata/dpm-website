@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth']], function(){
 
     # Activity
     Route::group(['prefix' => 'activity', 'as' => 'activity.'], function(){
-        Route::get('/', [ActivityController::class, 'index'])->name('index');
+        Route::get('/{user?}', [ActivityController::class, 'index'])->name('index');
         Route::post('/', [ActivityController::class, 'store'])->name('store');
         Route::delete('/{activity}', [ActivityController::class, 'destroy'])->name('destroy');
         Route::get('{activity}/edit', [ActivityController::class, 'edit'])->name('edit');
