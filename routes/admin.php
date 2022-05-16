@@ -5,6 +5,13 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\User\DetailController as UserDetailController;
+use App\Http\Controllers\Admin\User\EducationController as UserEducationController;
+use App\Http\Controllers\Admin\User\ExperienceController as UserExperienceController;
+use App\Http\Controllers\Admin\User\OrganizationController as UserOrganizationController;
+use App\Http\Controllers\Admin\User\MovementController as UserMovementController;
+use App\Http\Controllers\Admin\User\AchievementController as UserAchievementController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,11 +49,50 @@ Route::group(['middleware' => ['auth']], function(){
         Route::put('{activity}', [ActivityController::class, 'update'])->name('update');
     });
 
+
+
+    # User
     Route::group(['middleware' => 'superadmin', 'prefix' => 'user', 'as' => 'user.'], function(){
         Route::get('/', [UserController::class, 'index'])->name('index');
         Route::post('/', [UserController::class, 'store'])->name('store');
         Route::put('/{user}', [UserController::class, 'update'])->name('update');
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
+
+        # Detail User
+        Route::group(['prefix' => 'detail', 'as' => 'detail.'], function(){
+            Route::get('/{user?}', [UserDetailController::class, 'index'])->name('index');
+            Route::put('/{user}', [UserDetailController::class, 'update'])->name('update');
+        });
+
+        # Education User
+        Route::group(['prefix' => 'education', 'as' => 'education.'], function(){
+            Route::post('/', [UserEducationController::class, 'store'])->name('store');
+            Route::delete('/{userEducation}', [UserEducationController::class, 'destroy'])->name('destroy');
+        });
+
+        # Experience User
+        Route::group(['prefix' => 'experience', 'as' => 'experience.'], function(){
+            Route::post('/', [UserExperienceController::class, 'store'])->name('store');
+            Route::delete('/{userExperience}', [UserExperienceController::class, 'destroy'])->name('destroy');
+        });
+
+        # Organization User
+        Route::group(['prefix' => 'organization', 'as' => 'organization.'], function(){
+            Route::post('/', [UserOrganizationController::class, 'store'])->name('store');
+            Route::delete('/{userOrganization}', [UserOrganizationController::class, 'destroy'])->name('destroy');
+        });        
+
+        # Movement User
+        Route::group(['prefix' => 'movement', 'as' => 'movement.'], function(){
+            Route::post('/', [UserMovementController::class, 'store'])->name('store');
+            Route::delete('/{userMovement}', [UserMovementController::class, 'destroy'])->name('destroy');
+        });
+
+        # Achievement User
+        Route::group(['prefix' => 'achievement', 'as' => 'achievement.'], function(){
+            Route::post('/', [UserAchievementController::class, 'store'])->name('store');
+            Route::delete('/{userAchievement}', [UserAchievementController::class, 'destroy'])->name('destroy');
+        });        
     });
 
 });

@@ -35,7 +35,7 @@
                                         <div class="d-flex justify-content-between">
                                             <button class="btn btn-primary button-edit" data-id="{{ $user->id }}" data-service="edit" data-toggle="modal" data-target="#userForm">Edit</button>
                                             <a href="{{ route('admin.activity.index', $user->id) }}" class="btn btn-info">Activity</a>
-                                            <a href="#" class="btn btn-warning">Detail</a>
+                                            <a href="{{ route('admin.user.detail.index', $user->id) }}" class="btn btn-warning">Detail</a>
                                             <button class="btn-delete btn btn-danger" data-id="{{ $user->id }}">Delete</button>
                                         </div>
                                     </td>

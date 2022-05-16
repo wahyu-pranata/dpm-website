@@ -9,6 +9,13 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Storage;
 use App\Models\UserActivity;
+use App\Models\UserDetail;
+use App\Models\UserEducation;
+use App\Models\UserExperience;
+use App\Models\UserOrganization;
+use App\Models\UserMovement;
+use App\Models\UserAchievement;
+
 
 class User extends Authenticatable
 {
@@ -60,6 +67,36 @@ class User extends Authenticatable
     public function activities()
     {
         return $this->hasMany(UserActivity::class);
+    }
+
+    public function detail()
+    {
+        return $this->hasOne(UserDetail::class);
+    }
+
+    public function educations()
+    {
+        return $this->hasMany(UserEducation::class);
+    }
+
+    public function experiences()
+    {
+        return $this->hasMany(UserExperience::class);
+    }
+
+    public function organizations()
+    {
+        return $this->hasMany(UserOrganization::class);
+    }
+
+    public function movements()
+    {
+        return $this->hasMany(UserMovement::class);
+    }
+
+    public function achievements()
+    {
+        return $this->hasMany(UserAchievement::class);
     }
 
     public function isSuperAdmin()
