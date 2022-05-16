@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\User\ExperienceController as UserExperienceContro
 use App\Http\Controllers\Admin\User\OrganizationController as UserOrganizationController;
 use App\Http\Controllers\Admin\User\MovementController as UserMovementController;
 use App\Http\Controllers\Admin\User\AchievementController as UserAchievementController;
+use App\Http\Controllers\Admin\Document\DocumentController;
+
 
 
 /*
@@ -95,6 +97,13 @@ Route::group(['middleware' => ['auth']], function(){
             Route::post('/', [UserAchievementController::class, 'store'])->name('store');
             Route::delete('/{userAchievement}', [UserAchievementController::class, 'destroy'])->name('destroy');
         });        
+    });
+
+    Route::group(['prefix' => 'document', 'as' => 'document.'], function(){
+        Route::get('/', [DocumentController::class, 'index'])->name('index');
+        Route::post('/', [DocumentController::class, 'store'])->name('store');
+        Route::put('/{document}', [DocumentController::class, 'update'])->name('update');
+        Route::delete('/{document}', [DocumentController::class, 'destroy'])->name('destroy');
     });
 
 });
