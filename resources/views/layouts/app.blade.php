@@ -64,6 +64,10 @@
                         <i class="fas fa-solid fa-user"></i>
                         <span>Users</span>
                     </a>
+                    <a class="nav-link" href="{{ route('admin.notification.index') }}">
+                        <i class="fas fa-solid fa-bell"></i>
+                        <span>Notifications</span>
+                    </a>
                 @endif
                 <a class="nav-link" href="{{ route('admin.document.index') }}">
                     <i class="fas fa-solid fa-book"></i>
