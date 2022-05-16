@@ -25,15 +25,17 @@ class UpdateUserDetail extends FormRequest
     public function rules()
     {
         return [
-            'religion' => 'nullable|string',
-            'faculity' => 'nullable|string',
-            'study_program' => 'nullable|string',
-            'generation' => 'nullable|string',
+            'religion' => 'nullable|string|min:1|max:200',
+            'faculity' => 'nullable|string|min:1|max:200',
+            'study_program' => 'nullable|string|min:1|max:200',
+            'generation' => 'nullable|string|min:1|max:200',
             'address' => 'nullable|string',
             'user_id'  => 'nullable|numeric',
             'role_id' => 'nullable|numeric',
-            'birthdate' => 'nullable|string',
-            'birthplace' => 'nullable|string'
+            'birthdate' => 'nullable|string|min:1|max:200',
+            'birthplace' => 'nullable|string|min:1|max:200',
+            'instagram' => 'nullable|string|min:1|max:200',
+            'phone' => 'nullable|string|min:1|max:200'
         ];
     }
 }

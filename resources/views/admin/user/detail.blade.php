@@ -43,6 +43,10 @@
                                           @endforeach
                                         </select>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="contact-instagram">Instagram : </label>
+                                        <input type="text" name="instagram" id="contact-instagram" class="form-control" placeholder="input your instagram account ..." value="{{ $user->contact->instagram ?? '' }}">
+                                    </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
@@ -68,7 +72,10 @@
                                         <label for="detail-address">Address : </label>
                                         <textarea name="address" id="detail-address" class="form-control">{{ $user->detail->address ?? 'input your address ...' }}</textarea>
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for="contact-phone">Phone : </label>
+                                        <input type="text" name="phone" id="contact-phone" class="form-control" placeholder="input your phone number ..." value="{{ $user->contact->phone ?? '' }}">
+                                    </div>
                                 </div>
                             </div>                         
                             <div class="form-group d-flex justify-content-end">
@@ -425,7 +432,7 @@
             }); 
 
 
-            // User Detai
+            // User Detail
             $('#btn-details-submit').on('click', function(e){
                 event.preventDefault();
 

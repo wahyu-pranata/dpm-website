@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\User;
 
 use App\Models\User;
 use App\Models\UserDetail;
+use App\Models\UserContact;
 use App\Models\UserRole;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -39,6 +40,14 @@ class DetailController extends Controller
                 'birthdate'     => $request->birthdate,
                 'generation'    => $request->generation,
                 'address'       => $request->address
+            ]
+        );
+
+        UserContact::updateOrCreate(
+            ['user_id' => $user->id],
+            [
+                'instagram' => $request->instagram,
+                'phone'     => $request->phone
             ]
         );
 

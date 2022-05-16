@@ -15,6 +15,7 @@ use App\Models\UserExperience;
 use App\Models\UserOrganization;
 use App\Models\UserMovement;
 use App\Models\UserAchievement;
+use App\Models\UserContact;
 
 
 class User extends Authenticatable
@@ -97,6 +98,11 @@ class User extends Authenticatable
     public function achievements()
     {
         return $this->hasMany(UserAchievement::class);
+    }
+
+    public function contact()
+    {
+        return $this->hasOne(UserContact::class);
     }
 
     public function isSuperAdmin()
