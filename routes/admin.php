@@ -52,11 +52,13 @@ Route::group(['middleware' => ['auth']], function(){
 
 
     # User
-    Route::group(['middleware' => 'superadmin', 'prefix' => 'user', 'as' => 'user.'], function(){
-        Route::get('/', [UserController::class, 'index'])->name('index');
-        Route::post('/', [UserController::class, 'store'])->name('store');
-        Route::put('/{user}', [UserController::class, 'update'])->name('update');
-        Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
+    Route::group(['prefix' => 'user', 'as' => 'user.'], function(){
+        Route::group(['middleware' => 'superadmin'], function(){
+            Route::get('/', [UserController::class, 'index'])->name('index');
+            Route::post('/', [UserController::class, 'store'])->name('store');
+            Route::put('/{user}', [UserController::class, 'update'])->name('update');
+            Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
+        });
 
         # Detail User
         Route::group(['prefix' => 'detail', 'as' => 'detail.'], function(){
