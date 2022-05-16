@@ -17,8 +17,8 @@ class CreateDocumentsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('image_path');
-            $table->string('file_path');
+            $table->string('image_path')->nullable();
+            $table->string('file_path')->nullable();
             $table->foreignId('user_id')
                   ->constrained()
                   ->cascadeOnDelete();

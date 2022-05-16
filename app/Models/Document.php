@@ -10,8 +10,8 @@ class Document extends Model
 {
     use HasFactory;
 
-    const IMAGE_PATH = "public/images/documents/images";
-    const FILE_PATH = "public/images/documents/files";
+    const IMAGE_PATH = "public/images/documents";
+    const FILE_PATH = "public/files/documents";
 
     protected $table = 'documents';
 
