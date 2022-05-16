@@ -18,6 +18,7 @@ class CreateNotificationsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('file_path')->nullable();
+            $table->date('post_limit');
             $table->foreignId('user_id')
                   ->constrained()
                   ->cascadeOnDelete();

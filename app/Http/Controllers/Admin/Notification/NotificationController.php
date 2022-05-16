@@ -26,6 +26,7 @@ class NotificationController extends Controller
         $notification->title = $request->title;
         $notification->description = $request->description;
         $notification->user_id = $request->user_id;
+        $notification->post_limit = $request->post_limit;
 
         if($request->file('file_path')){            
             $file_path = $request->file('file_path')->store(Notification::FILE_PATH);
@@ -52,6 +53,7 @@ class NotificationController extends Controller
         $notification->title       = $request->title;
         $notification->description = $request->description;
         $notification->user_id     = $request->user_id;
+        $notification->post_limit  = $request->post_limit;
 
         if($request->file('file_path')){
             if($notification->file_path)

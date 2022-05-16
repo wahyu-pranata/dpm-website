@@ -59,6 +59,10 @@
                                 <textarea name="description" id="description" class="form-control" rows="5" placeholder="input Description ..."></textarea>
                             </div>
                             <div class="form-group">
+                                <label for="post_limit">Post Limit : </label>
+                                <input type="text" name="post_limit" id="post_limit" class="form-control date-picker" placeholder="input Post Limit ...">
+                            </div>
+                            <div class="form-group">
                                 <label for="file_path">File : </label>
                                 <input type="file" name="file_path" id="file_path" class="form-control-file">
                             </div>
@@ -79,6 +83,13 @@
 
 @section('scripts')
     <script type="text/javascript">
+        $('.date-picker').datepicker({
+            dateFormat: "yy-mm-dd",
+            changeYear: true,
+            changeMonth: true,
+            yearRange: "-100:+0"
+        });
+        
         const notificationData = JSON.parse('{{$notifications->toJson()}}'.replace(/&quot;/g,'"'));
 
         $.ajaxSetup({
@@ -97,7 +108,7 @@
 
         $("#BtnCreate").click(function(e){
             e.preventDefault();
-            ['title', 'description', 'file_path'].forEach(function(name){
+            ['title', 'description', 'file_path', 'post_limit'].forEach(function(name){
                 $("#formData input[name='" + name + "']").val('');
                 $("#formData textarea[name='" + name + "']").val('');
             });
@@ -107,7 +118,7 @@
             e.preventDefault();
             for(i = 0; i < notificationData.length; i++){
                 if(notificationData[i]['id'] == $(this).data('id')){
-                    ['title', 'description', 'file_path', 'image_path'].forEach(function(name){
+                    ['title', 'description', 'file_path', 'image_path', 'post_limit'].forEach(function(name){
                         $("#formData input[name='" + name + "']").val(notificationData[i][name]);
                         $("#formData textarea[name='" + name + "']").val(notificationData[i][name]);
                     });

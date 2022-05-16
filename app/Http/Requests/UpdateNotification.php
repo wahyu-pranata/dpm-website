@@ -25,9 +25,10 @@ class UpdateNotification extends FormRequest
     public function rules()
     {
         return [
-            'title'       => 'required|min:1|max:100',
-            'description' => 'required|min:1|max:1000',
-            'file_path'   => 'nullable|max:10000'
+            'title'       => 'required|string|min:1|max:100',
+            'description' => 'required|string|min:1|max:1000',
+            'title'       => 'required|string|min:1|max:100',
+            'file_path'   => 'nullable|string|max:10000'
         ];
     }
 }
