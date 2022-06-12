@@ -17,7 +17,6 @@ use App\Models\UserMovement;
 use App\Models\UserAchievement;
 use App\Models\UserContact;
 
-
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;

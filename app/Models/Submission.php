@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\UserRole;
 
-class UserDetail extends Model
+class Submission extends Model
 {
     use HasFactory;
 
-    protected $table = 'user_details';
+    protected $table = 'submissions';
 
     /**
      * The attributes that are mass assignable.
@@ -18,19 +17,10 @@ class UserDetail extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'religion',
+        'name',
         'faculity',
         'study_program',
         'generation',
-        'address',
-        'user_id',
-        'role_id',
-        'birthdate',
-        'birthplace'
+        'submission'
     ];
-
-    public function role()
-    {
-        return $this->belongsTo(UserRole::class);
-    }
 }

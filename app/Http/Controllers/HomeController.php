@@ -3,19 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Document;
+use App\Models\User;
+use App\Models\UserDetail;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -23,6 +16,38 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $displayTemplate = [
+            ["KETUA", "WAKIL KETUA"],
+            ["SEKERTARIS UMUM", "BENDAHARA II", "BENDAHARA II", "SEKERTARIS JENDRAL"],
+            ["KOMISI I"],
+            ["KOMISI II"],
+            ["KOMISI III"],
+            ["KOMISI IV"],
+            ["KOMISI V"],
+            ["DIVISI KESTARI"],
+            ["DIVISI MEDINFO"],
+            ["DIVISI PSDM"],
+            ["DIVISI LITBANG"]
+        ];
+        $users     = User::where('role', '<>', 'SUPER_ADMIN')->get();
+        $orderedUsers = [];
+
+        for ($i=0; $i < count($displayTemplate); $i++) {
+            array_push($orderedUsers, []);
+        }
+
+        foreach($users as $user){
+            for ($i=0; $i < count($displayTemplate); $i++) {
+                for ($j=0; $j < count($displayTemplate[$i]); $j++) { 
+                    if($user->detail->role->role == $displayTemplate[$i][$j]){
+                        array_push($orderedUsers[$i], $user);
+                    }
+                }
+            }
+        }
+
+        $documents = Document::all();
+
+        return view('index', compact('users', 'documents', 'orderedUsers'));
     }
 }
