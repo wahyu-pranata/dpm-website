@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\User\AchievementController as UserAchievementCont
 use App\Http\Controllers\Admin\Document\DocumentController;
 use App\Http\Controllers\Admin\Notification\NotificationController;
 use App\Http\Controllers\Admin\Submission\SubmissionController;
+use App\Http\Controllers\Admin\Post\PostController;
 
 
 
@@ -120,5 +121,11 @@ Route::group(['middleware' => ['auth']], function(){
         Route::delete('/{submission}', [SubmissionController::class, 'destroy'])->name('destroy');
     });
 
+    Route::group(['prefix' => 'post', 'as' => 'post.'], function(){
+        Route::get('/', [PostController::class, 'index'])->name('index');
+        Route::post('/', [PostController::class, 'store'])->name('store');
+        Route::put('/{post}', [PostController::class, 'update'])->name('update');
+        Route::delete('/{post}', [PostController::class, 'destroy'])->name('destroy');
+    });
 });
 

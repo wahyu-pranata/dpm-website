@@ -17,15 +17,23 @@
                                 @foreach($submissions as $submission)
                                     <div class="list-group-item list-group-item-action flex-column align-items-start">
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1">{{ $submission->name }}</h5>
+                                            <a class="text-dark" data-toggle="collapse" href="#collapse-{{ $submission->id }}" role="button" aria-expanded="false" aria-controls="collapse-{{ $submission->id }}">
+                                                From : {{ $submission->name }}&ensp;{{ $submission->faculity }}/{{ $submission->study_program }}-{{$submission->generation}}
+                                            </a>
                                             <div class="d-flex">
                                                 <button class="btn-delete btn btn-danger" data-id="{{ $submission->id }}">Delete</button>
+                                            </div>
+                                        </div>
+                                        <div id="collapse-{{ $submission->id }}" class="collapse mt-3">
+                                            <div class="card card-body">
+                                                {{ $submission->submission }}
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
                             </div>
                         @endif
+                        <div class="pagination-container mt-3">{{ $submissions->links() }}</div>
                     </div>
                 </div>
             </div>

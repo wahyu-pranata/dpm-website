@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Document;
 use App\Models\User;
 use App\Models\UserDetail;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
@@ -47,7 +48,8 @@ class HomeController extends Controller
         }
 
         $documents = Document::all();
+        $posts     = Post::all();
 
-        return view('index', compact('users', 'documents', 'orderedUsers'));
+        return view('index', compact('users', 'documents', 'orderedUsers', 'posts'));
     }
 }

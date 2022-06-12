@@ -385,38 +385,22 @@
     </div>
 
 
-      <div class="row" data-aos="fade-up" data-aos-delay="200">
-              <div class="col-lg-4  mb-4">
-                  <div class="post-box">
-                        <div class="post-img"><img src="./assets/img/image-postingan/postingan 1.png" class="img-fluid" alt=""></div>
-                        <span class="post-date"><i class="bi bi-clock"></i>
-                            2022-05-12</span>
-                        <h3 class="post-title">[SURAT KEPUTUSAN KETUA DPM PM UNIVERSITAS UDAYANA..</h3>
-                        <a href="https://www.instagram.com/p/CdakEDmPt2f/" class="readmore stretched-link mt-auto text-dark"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div>
-              <div class="col-lg-4  mb-4">
-                  <div class="post-box">
-                      <div class="post-img"><img src="./assets/img/image-postingan/postingan 2.png" class="img-fluid" alt=""></div>
-                      <span class="post-date"><i class="bi bi-clock"></i>
-                          2022-05-12</span>
-                      <h3 class="post-title">[TELAH TERLAKSANA PENGAWASAN KEGIATAN GRAND CLOSING GELAPATA VII 2022..</h3>
-                      <a href="https://www.instagram.com/p/CdaLYDyv9W1/" class="readmore stretched-link mt-auto text-dark"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-                  </div>
-              </div>
-                <div class="col-lg-4  mb-4">
-                  <div class="post-box">
-                      <div class="post-img"><img src="./assets/img/image-postingan/postingan 3.png" class="img-fluid" alt=""></div>
-                      <span class="post-date"><i class="bi bi-clock"></i>
-                          2022-05-12</span>
-                      <h3 class="post-title">[TELAH TERLAKSANA PENGAWASAN KEGIATAN PEMBUKAAN DESA DAMPINGAN BEM PM 2022..</h3>
-                      <a href="https://www.instagram.com/p/CdaDJw4Pjaf/" class="readmore stretched-link mt-auto text-dark"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-                  </div>
-              </div>
+    <div class="row" data-aos="fade-up" data-aos-delay="200">
+      @foreach($posts as $post)
+      <div class="col-lg-4  mb-4">
+        <div class="post-box">
+            <div class="post-img"><img src="{{ $post->image }}" class="img-fluid" alt=""></div>
+            <span class="post-date"><i class="bi bi-clock"></i>
+                  {{ $post->created_at }}</span>
+            <h3 class="post-title">{{ $post->title }}</h3>
+            <a href="{{ $post->link }}" class="readmore stretched-link mt-auto text-dark"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+        </div>
       </div>
-      <div class="btn-readmore text-center m-3">
-          <a href="https://www.instagram.com/dpm_udayana/" class="btn-get-started btn btn-primary">Selengkapnya</a>
-      </div>
+      @endforeach
+    </div>
+    <div class="btn-readmore text-center m-3">
+        <a href="https://www.instagram.com/dpm_udayana/" class="btn-get-started btn btn-primary">Selengkapnya</a>
+    </div>
 
   </div>
 

@@ -11,7 +11,7 @@ class SubmissionController extends Controller
 {
     public function index()
     {
-        $submissions = Submission::all();
+        $submissions = Submission::paginate(5);
         return view('admin.submission', compact('submissions'));
     }
 

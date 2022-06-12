@@ -73,6 +73,14 @@
                     <i class="fas fa-solid fa-book"></i>
                     <span>Document</span>
                 </a>
+                <a class="nav-link" href="{{ route('admin.post.index') }}">
+                    <i class="fas fa-solid fa-comments"></i>
+                    <span>Post</span>
+                </a>
+                <a class="nav-link" href="{{ route('admin.submission.index') }}">
+                    <i class="fas fa-solid fa-envelope"></i>
+                    <span>Submission</span>
+                </a>
                 <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
