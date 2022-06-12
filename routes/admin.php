@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\User\MovementController as UserMovementController
 use App\Http\Controllers\Admin\User\AchievementController as UserAchievementController;
 use App\Http\Controllers\Admin\Document\DocumentController;
 use App\Http\Controllers\Admin\Notification\NotificationController;
+use App\Http\Controllers\Admin\Submission\SubmissionController;
 
 
 
@@ -112,6 +113,11 @@ Route::group(['middleware' => ['auth']], function(){
         Route::post('/', [NotificationController::class, 'store'])->name('store');
         Route::put('/{notification}', [NotificationController::class, 'update'])->name('update');
         Route::delete('/{notification}', [NotificationController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::group(['prefix' => 'submission', 'as' => 'submission.'], function(){
+        Route::get('/', [SubmissionController::class, 'index'])->name('index');
+        Route::delete('/{submission}', [SubmissionController::class, 'destroy'])->name('destroy');
     });
 
 });
