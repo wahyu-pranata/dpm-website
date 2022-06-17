@@ -310,11 +310,11 @@
                       <div class="card-funsionaris p-0" data-aos="fade-left">
                         <div class="card-image"> <img src="{{$user->image}}" height="700px" alt=""> </div>
                         <div class="card-content d-flex flex-column align-items-center">
-                            <h4 class="pt-2">{{$user->name}}</h4>
+                            <h4 class="pt-2"><a href="{{route('user.show', $user->id)}}">{{$user->name}}</a></h4>
                             <h5>{{$user->detail->role->role}}</h5>
                             <ul class="social-icons d-flex justify-content-center">
-                                <li> <a href="https://wa.me/{{$user->contact->phone}}"> phone<span class="fab fa-whatsapp"></span> </a> </li>
-                                <li> <a href="https://instagram.com/{{$user->contact->instagram}}"> <span class="fab fa-instagram"> Instagram</span> </a> </li>
+                                <li> <a href="https://wa.me/{{$user->contact->phone}}"><span class="fa fa-whatsapp"></span></a></li>
+                                <li> <a href="https://instagram.com/{{$user->contact->instagram}}"><span class="fa fa-instagram"></span></a></li>
                             </ul>
                         </div>
                       </div>

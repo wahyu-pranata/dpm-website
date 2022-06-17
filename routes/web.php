@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubmissionController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,11 @@ use App\Http\Controllers\SubmissionController;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('index');
+
+Route::group(['prefix' => 'users', 'as' => 'user.'], function(){
+    Route::get('/{user}', [UserController::class, 'show'])->name('show');
+});
+
 
 Route::group(['prefix' => 'submission', 'as' => 'submission.'], function(){
     Route::post('/', [SubmissionController::class, 'store'])->name('store');
