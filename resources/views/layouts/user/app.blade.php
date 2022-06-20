@@ -47,16 +47,14 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><img src="{{ asset('img/logo.png') }}" alt="logo DPM UNUD" width="40" height="40" class="" /><a href="index.html"><span class="title-text-DPM-upper"> DPM PM UNUD</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <h1 class="logo me-auto"><img src="{{ asset('img/logo.png') }}" alt="logo DPM UNUD" width="40" height="40" class="" /><a href="{{ route('index') }}"><span class="title-text-DPM-upper"> DPM PM UNUD</span></a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
-          <li><a class="nav-link scrollto" href="#cta">Perpustakaan</a></li>
-          <li><a class="nav-link scrollto" href="#recent-postingan">Postingan</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('index') . '#hero'}}">Beranda</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('index') . '#about' }}">Tentang Kami</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('index') . '#cta' }}">Perpustakaan</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('index') . '#recent-postingan' }}">Postingan</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -74,8 +72,8 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li> -->
-          <li><a class="nav-link scrollto" href="#contact">Aspirasi</a></li>
-          <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('index') . '#contact' }}">Aspirasi</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('index') . '#footer' }}">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
