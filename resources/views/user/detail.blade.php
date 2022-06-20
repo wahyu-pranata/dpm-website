@@ -12,7 +12,9 @@
             <h3 class="text-light">{{ $user->detail->role->role }}</h3>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-            <img src="{{ $user->image }}" class="img-fluid animated" alt=""  >
+            <div class="image-container d-flex justify-content-center">
+              <img src="{{ asset('img/spinner.svg') }}" data-src="{{ $user->image }}" class="img-fluid animated lazyload" alt="">
+            </div>
           </div>
         </div>
       </div>

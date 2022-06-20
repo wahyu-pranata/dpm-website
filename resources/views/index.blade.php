@@ -15,7 +15,9 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="{{ asset('img/hero.png') }}" class="img-fluid animated" alt=""  >
+          <div class="image-container d-flex justify-content-center align-items-center">
+            <img src="{{ asset('img/spinner.svg') }}" data-src="{{ asset('img/hero.png') }}" class="img-fluid animated lazyload" alt=""  >
+          </div>
         </div>
       </div>
     </div>
@@ -41,7 +43,7 @@
             data-aos-duration="3000">
               <h2 class="accordion-header" id="flush-headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                  <img src="{{ asset('img/purpose-icon/icon_01.png') }}" alt="" height="50">
+                  <img class="lazyload" src="{{ asset('img/spinner.svg') }}" data-src="{{ asset('img/purpose-icon/icon_01.png') }}" alt="" height="50">
                   <span class="title-text-DPM">LEGISLASI</span>
                 </button>
               </h2>
@@ -64,7 +66,7 @@
             data-aos-duration="3000">
               <h2 class="accordion-header" id="flush-headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                  <img src="{{ asset('img/purpose-icon/icon_04.png') }}" alt="" height="50">
+                  <img class="lazyload" src="{{ asset('img/spinner.svg') }}" data-src="{{ asset('img/purpose-icon/icon_04.png') }}" alt="" height="50">
                   <span class="title-text-DPM">PENGAWASAN</span>
                 </button>
               </h2>
@@ -95,7 +97,7 @@
             data-aos-duration="3000">
               <h2 class="accordion-header" id="flush-headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                  <img src="{{ asset('img/purpose-icon/icon_03.png') }}" alt="" height="50">
+                  <img class="lazyload" src="{{ asset('img/spinner.svg') }}" data-src="{{ asset('img/purpose-icon/icon_03.png') }}" alt="" height="50">
                   <span class="title-text-DPM">ANGGARAN</span>
                 </button>
               </h2>
@@ -118,7 +120,7 @@
             data-aos-duration="3000">
               <h2 class="accordion-header" id="flush-headingFour">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                  <img src="{{ asset('img/purpose-icon/icon_02.png') }}" alt="" height="50">
+                  <img class="lazyload" src="{{ asset('img/spinner.svg') }}" data-src="{{ asset('img/purpose-icon/icon_02.png') }}" alt="" height="50">
                   <span class="title-text-DPM">ASPIRASI & ADVOKASI</span>
                 </button>
               </h2>
@@ -308,7 +310,7 @@
                   @foreach($orderedUsers[$loop->index] as $user)
                     <div class="col-lg-3 col-md-6 col-sm-12 fungsio-col" data-aos="fade-up" data-aos-delay="200">
                       <div class="card-funsionaris p-0" data-aos="fade-left">
-                        <div class="card-image"> <img src="{{$user->image}}" height="700px" alt=""> </div>
+                        <div class="card-image"> <img class="lazyload" src="{{ asset('img/spinner.svg') }}" data-src="{{$user->image}}" height="700px" alt=""> </div>
                         <div class="card-content d-flex flex-column align-items-center">
                             <h4 class="pt-2"><a href="{{route('user.show', $user->id)}}">{{$user->name}}</a></h4>
                             <h5>{{$user->detail->role->role}}</h5>
@@ -346,10 +348,10 @@
         <div class="carousel-inner">
           @foreach($documents as $document)
           <div class="carousel-item active">
-            <img src="{{ asset('img/hero-bg.jpg') }}" alt="New York" height="600px" class=" img-trasnparant" style="width:100%">
+            <img src="{{ asset('img/spinner.svg') }}" data-src="{{ asset('img/hero-bg.jpg') }}" alt="New York" height="600px" class=" img-trasnparant lazyload" style="width:100%">
             <div class="carousel-caption">
               <div class="row">
-                <div class="col img-col"><img src="{{ $document->image }}" height="300" alt="" class="img-caption"></div>
+                <div class="col img-col"><img src="{{ asset('img/spinner.svg') }}" data-src="{{ $document->image }}" height="300" alt="" class="img-caption lazyload"></div>
                 <div class="col text-col"><h3>{{ $document->title }}</h3>
                   <p>{{ $document->description }}</p>
                   <a class="btn btn-primary" href="{{ $document->file }}" role="button">Selengkapnya</a>
@@ -389,7 +391,7 @@
       @foreach($posts as $post)
       <div class="col-lg-4  mb-4">
         <div class="post-box">
-            <div class="post-img"><img src="{{ $post->image }}" class="img-fluid" alt=""></div>
+            <div class="post-img"><img src="{{ asset('img/spinner.svg') }}" data-src="{{ $post->image }}" class="img-fluid lazyload" alt=""></div>
             <span class="post-date"><i class="bi bi-clock"></i>
                   {{ $post->created_at }}</span>
             <h3 class="post-title">{{ $post->title }}</h3>
@@ -422,7 +424,7 @@
 
           <div class="col-lg-5 d-flex align-items-stretch">
             <div class="info">
-              <img src="{{ asset('img/aspiration.jpg') }}" frameborder="0" style="border:0; width: 100%; height: 600px;" allowfullscreen>
+              <img src="{{ asset('img/spinner.svg') }}" data-src="{{ asset('img/aspiration.jpg') }}" class="lazyload" frameborder="0" style="border:0; width: 100%; height: 600px;" allowfullscreen>
              
             </div>
 
@@ -478,7 +480,7 @@
         <div class="row justify-content-center align-items-center">
 
           <div class="col-lg-6 col-md-6 footer-contact">
-            <h3><a class="navbar-brand" href="#"><img src="{{ asset('img/logo.png') }}" alt="logo DPM UNUD" width="40" height="40" class="" /><span class="title-text-DPM"> DPM PM UNUD</span></a></h3>
+            <h3><a class="navbar-brand" href="#"><img src="{{ asset('img/spinner.svg') }}" data-src="{{ asset('img/logo.png') }}" alt="logo DPM UNUD" width="40" height="40" class="lazyload" /><span class="title-text-DPM"> DPM PM UNUD</span></a></h3>
             <p>
               DPM dapat senantiasa melangkah bersama untuk memajukan DPM dan Universitas Udayana
             </p>
