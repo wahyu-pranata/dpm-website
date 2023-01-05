@@ -40,8 +40,10 @@ class HomeController extends Controller
         foreach($users as $user){
             for ($i=0; $i < count($displayTemplate); $i++) {
                 for ($j=0; $j < count($displayTemplate[$i]); $j++) { 
-                    if($user->detail->role->role == $displayTemplate[$i][$j]){
-                        array_push($orderedUsers[$i], $user);
+                    if(isset($user->detail->role) && !is_null($user->detail->role)){
+                        if($user->detail->role->role == $displayTemplate[$i][$j]){
+                            array_push($orderedUsers[$i], $user);
+                        }
                     }
                 }
             }
