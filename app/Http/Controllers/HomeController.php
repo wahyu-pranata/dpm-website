@@ -19,7 +19,7 @@ class HomeController extends Controller
     {
         $displayTemplate = [
             ["KETUA", "WAKIL KETUA"],
-            ["SEKERTARIS UMUM", "BENDAHARA II", "BENDAHARA II", "SEKERTARIS JENDRAL"],
+            ["SEKERTARIS UMUM", "BENDAHARA I", "BENDAHARA II", "SEKERTARIS JENDRAL"],
             ["KOMISI I"],
             ["KOMISI II"],
             ["KOMISI III"],
