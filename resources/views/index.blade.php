@@ -347,7 +347,7 @@
         <!-- The slideshow/carousel -->
         <div class="carousel-inner">
           @foreach($documents as $document)
-          <div class="carousel-item active">
+          <div class="carousel-item {{$loop->first ? 'active' : ''}}">
             <img src="{{ asset('img/spinner.svg') }}" data-src="{{ asset('img/hero-bg.jpg') }}" alt="New York" height="600px" class=" img-trasnparant lazyload" style="width:100%">
             <div class="carousel-caption">
               <div class="row">
