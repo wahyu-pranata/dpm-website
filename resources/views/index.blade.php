@@ -395,7 +395,7 @@
             <span class="post-date"><i class="bi bi-clock"></i>
                   {{ $post->created_at }}</span>
             <h3 class="post-title">{{ $post->title }}</h3>
-            <a href="{{ $post->link }}" class="readmore stretched-link mt-auto text-dark"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            <a href="{{ $post->link }}" class="readmore mt-auto text-dark"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
       @endforeach
