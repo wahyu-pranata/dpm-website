@@ -15,17 +15,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('users')->insert([[
             'name' => 'admin',
             'email' => 'admin@dpm.com',
             'password' => Hash::make('admin123'),
             'role' => 'SUPER_ADMIN'
-        ],[
+        ], [
             'name' => 'noadmin',
             'email' => 'noadmin@dpm.com',
             'password' => Hash::make('noadmin123'),
             'role' => 'ADMIN'
-        ]);
+        ]]);
 
         DB::table('user_roles')->insert([
             ['role' => 'KETUA'],
